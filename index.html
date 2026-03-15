@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mlivo Workflow | Engineering-Automatisierung für Ingenieurbüros</title>
+    <title>Mlivo-Workflow | Dokumentation & Workflow-Strukturierung für technische Teams</title>
+    <meta name="description" content="Wir bringen Ordnung in unstrukturierte Engineering-Prozesse. Dokumentation Cleanup, Handover Packages, Monthly Support. Festpreise, keine technische Haftung.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
@@ -20,62 +21,77 @@
         .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 20px; color: #1e3a5f; }
         .section-subtitle { text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 60px; }
         
-        /* Hero */
-        .hero { background: #f8f9fa; }
-        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .hero-text h2 { font-size: 2.2rem; color: #1e3a5f; margin-bottom: 20px; }
-        .hero-text p { font-size: 1.1rem; margin-bottom: 20px; color: #555; }
-        .hero-image { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 400px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; }
+        /* Problem */
+        .problem { background: #f8f9fa; }
+        .problem-content { max-width: 800px; margin: 0 auto; }
+        .problem h2 { font-size: 2rem; color: #1e3a5f; margin-bottom: 30px; text-align: center; }
+        .problem ul { list-style: none; margin: 30px 0; }
+        .problem li { padding: 15px 0; border-bottom: 1px solid #ddd; font-size: 1.1rem; }
+        .problem li:before { content: "❌ "; margin-right: 10px; }
+        .problem .cost { background: #fee; padding: 20px; border-radius: 10px; margin-top: 30px; text-align: center; }
+        .problem .cost strong { color: #c53030; font-size: 1.3rem; }
+        
+        /* Solution */
+        .solution { background: white; }
+        .solution h2 { font-size: 2rem; color: #1e3a5f; margin-bottom: 30px; text-align: center; }
+        .solution-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 40px; }
+        .solution-box { padding: 30px; border-radius: 10px; }
+        .solution-do { background: #f0fff4; border: 2px solid #48bb78; }
+        .solution-dont { background: #fff5f5; border: 2px solid #fc8181; }
+        .solution-box h3 { margin-bottom: 20px; font-size: 1.3rem; }
+        .solution-do h3 { color: #22543d; }
+        .solution-dont h3 { color: #742a2a; }
+        .solution-box ul { list-style: none; }
+        .solution-box li { padding: 8px 0; }
+        .solution-do li:before { content: "✅ "; }
+        .solution-dont li:before { content: "❌ "; }
         
         /* Services */
+        .services { background: #f8f9fa; }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .service-card { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
-        .service-card:hover { transform: translateY(-5px); }
-        .service-card .icon { font-size: 3rem; margin-bottom: 20px; }
+        .service-card { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; }
         .service-card h3 { font-size: 1.5rem; color: #1e3a5f; margin-bottom: 15px; }
-        .service-card p { color: #666; margin-bottom: 20px; }
-        .service-card .features { list-style: none; }
-        .service-card .features li { padding: 8px 0; border-bottom: 1px solid #eee; color: #555; }
-        .service-card .features li:last-child { border-bottom: none; }
+        .service-card .price { font-size: 2.5rem; font-weight: bold; color: #48bb78; margin-bottom: 10px; }
+        .service-card .duration { color: #666; margin-bottom: 20px; }
+        .service-card ul { list-style: none; text-align: left; margin-bottom: 30px; }
+        .service-card li { padding: 8px 0; border-bottom: 1px solid #eee; }
+        .service-card li:before { content: "✓ "; color: #48bb78; font-weight: bold; }
         
         /* Products */
         .products { background: #1e3a5f; color: white; }
         .products .section-title { color: white; }
         .products .section-subtitle { color: rgba(255,255,255,0.8); }
-        .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .product-card { background: rgba(255,255,255,0.1); padding: 40px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.2); }
-        .product-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
-        .product-card .price { font-size: 2.5rem; font-weight: bold; margin-bottom: 20px; }
-        .product-card .price span { font-size: 1rem; opacity: 0.7; }
-        .product-card ul { list-style: none; margin-bottom: 30px; }
-        .product-card ul li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .btn { display: inline-block; padding: 15px 30px; background: #48bb78; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background 0.3s; }
-        .btn:hover { background: #38a169; }
+        .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .product-card { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 10px; text-align: center; }
+        .product-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .product-card .price { font-size: 2rem; font-weight: bold; margin-bottom: 10px; }
+        .product-card .format { font-size: 0.9rem; opacity: 0.8; }
+        .product-highlight { background: #48bb78; transform: scale(1.05); }
         
-        /* About */
-        .about-content { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: center; }
-        .about-image { background: #e2e8f0; height: 300px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #666; }
-        .about-text h2 { font-size: 2rem; color: #1e3a5f; margin-bottom: 20px; }
-        .about-text p { margin-bottom: 15px; color: #555; }
-        .credentials { display: flex; gap: 30px; margin-top: 30px; }
-        .credential { text-align: center; }
-        .credential .number { font-size: 2.5rem; font-weight: bold; color: #1e3a5f; }
-        .credential .label { color: #666; font-size: 0.9rem; }
+        /* ROI */
+        .roi { background: white; }
+        .roi-content { max-width: 800px; margin: 0 auto; text-align: center; }
+        .roi-table { width: 100%; margin: 40px 0; border-collapse: collapse; }
+        .roi-table th, .roi-table td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        .roi-table th { background: #1e3a5f; color: white; }
+        .roi-table .before { color: #c53030; }
+        .roi-table .after { color: #48bb78; font-weight: bold; }
         
-        /* CTA */
-        .cta { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; }
-        .cta h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        .cta p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
-        .cta .btn { background: white; color: #667eea; font-size: 1.1rem; padding: 20px 40px; }
+        /* Contact */
+        .contact { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; }
+        .contact h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .contact p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
+        .contact .email { font-size: 1.5rem; font-weight: bold; background: rgba(255,255,255,0.2); display: inline-block; padding: 15px 30px; border-radius: 50px; }
         
         /* Footer */
         footer { background: #1a202c; color: white; padding: 40px 0; text-align: center; }
         footer p { opacity: 0.7; }
+        footer .disclaimer { margin-top: 20px; font-size: 0.9rem; opacity: 0.5; }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-content, .about-content { grid-template-columns: 1fr; }
             .services-grid, .products-grid { grid-template-columns: 1fr; }
+            .solution-grid { grid-template-columns: 1fr; }
             header h1 { font-size: 2rem; }
         }
     </style>
@@ -84,167 +100,211 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <h1>Mlivo Workflow</h1>
-            <p class="subtitle">Engineering-Automatisierung für Ingenieurbüros</p>
-            <p class="tagline">⚡ Von Ingenieuren. Für Ingenieure.</p>
+            <h1>Mlivo-Workflow</h1>
+            <p class="subtitle">Dokumentation & Workflow-Strukturierung für technische Teams</p>
+            <p class="tagline">Wir strukturieren. Sie behalten die technische Verantwortung.</p>
         </div>
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
+    <!-- Problem -->
+    <section class="problem">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h2>Stoppen Sie zeitfressende Routinearbeiten</h2>
-                    <p>Als Mechanical & Piping Engineer kenne ich Ihre Herausforderungen aus erster Hand. Excel-Listen, manuelle Reports, wiederkehrende Berechnungen – das frisst 30% Ihrer Arbeitszeit.</p>
-                    <p><strong>Ich automatisiere Ihre technischen Prozesse.</strong> Mit Engineering-Know-how, nicht mit überdimensionierter IT.</p>
-                    <p style="margin-top: 30px;"><a href="#kontakt" class="btn">Kostenloses Erstgespräch vereinbaren</a></p>
+            <div class="problem-content">
+                <h2>Das Problem: Unstrukturierte Dokumentation</h2>
+                <p style="text-align: center; font-size: 1.1rem; margin-bottom: 30px;">
+                    Ingenieurbüros verlieren täglich Stunden mit:
+                </p>
+                <ul>
+                    <li>Unstrukturierten Projekt-Daten</li>
+                    <li>Inkonsistenten Datei-Namen</li>
+                    <li>Unvollständigen Übergabe-Unterlagen</li>
+                    <li>Manuellem Such-Aufwand</li>
+                    <li>Unklarheit über aktuelle Versionen</li>
+                </ul>
+                <div class="cost">
+                    <strong>Kosten: 2-3 Stunden pro Mitarbeiter täglich = €200-300 verbrannte Produktivität</strong>
                 </div>
-                <div class="hero-image">
-                    [Engineering Automation Illustration]
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="solution">
+        <div class="container">
+            <h2>Unsere Lösung: Struktur statt Chaos</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 30px;">
+                Mlivo-Workflow bringt Ordnung in Ihre technische Dokumentation – ohne Ihnen technische Entscheidungen abzunehmen.
+            </p>
+            <div class="solution-grid">
+                <div class="solution-box solution-do">
+                    <h3>✅ Was wir tun</h3>
+                    <ul>
+                        <li>Dokumentation sortieren und strukturieren</li>
+                        <li>Klare Ablage-Logik etablieren</li>
+                        <li>Übergabe-Dokumentation vorbereiten</li>
+                        <li>Wiederkehrende Formate standardisieren</li>
+                        <li>Templates und Checklisten erstellen</li>
+                    </ul>
+                </div>
+                <div class="solution-box solution-dont">
+                    <h3>❌ Was wir NICHT tun</h3>
+                    <ul>
+                        <li>Technische Berechnungen prüfen</li>
+                        <li>Zeichnungen freigeben</li>
+                        <li>Compliance-Verifikation</li>
+                        <li>Engineering-Entscheidungen treffen</li>
+                        <li>Technische Verantwortung übernehmen</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services -->
-    <section id="leistungen">
+    <section class="services">
         <div class="container">
-            <h2 class="section-title">Meine Leistungen</h2>
-            <p class="section-subtitle">Pragmatische Automatisierung statt überdimensionierter Systeme</p>
+            <h2 class="section-title">Unsere Services</h2>
+            <p class="section-subtitle">Festpreise. Klare Ergebnisse. Keine technische Haftung.</p>
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="icon">⚙️</div>
-                    <h3>Excel-Automatisierung</h3>
-                    <p>Makros, Datenverarbeitung, automatische Reports – maßgeschneidert für technische Anforderungen.</p>
-                    <ul class="features">
-                        <li>✓ VBA-Makro-Entwicklung</li>
-                        <li>✓ Automatische Reports</li>
-                        <li>✓ Datenvalidierung</li>
-                        <li>✓ Dashboard-Erstellung</li>
+                    <h3>Documentation Cleanup</h3>
+                    <div class="price">€2.500</div>
+                    <div class="duration">5 Tage | Festpreis</div>
+                    <ul>
+                        <li>Bestandsaufnahme aller Dokumente</li>
+                        <li>Struktur-Design & Namenskonventionen</li>
+                        <li>Systematische Umsortierung</li>
+                        <li>Templates für Ihr Team</li>
+                        <li>Übergabe-Call (30 Min)</li>
                     </ul>
+                    <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
+                        Ideal für: Ingenieurbüros mit chaotischer Doku
+                    </p>
                 </div>
                 
                 <div class="service-card">
-                    <div class="icon">🤖</div>
-                    <h3>KI-Workflow Integration</h3>
-                    <p>OpenClaw-basierte Automatisierung für Dokumente, E-Mails und wiederkehrende Prozesse.</p>
-                    <ul class="features">
-                        <li>✓ Dokumentenautomatisierung</li>
-                        <li>✓ KI-gestützte Datenextraktion</li>
-                        <li>✓ Automatisierte Workflows</li>
-                        <li>✓ E-Mail-Verarbeitung</li>
+                    <h3>Handover Package</h3>
+                    <div class="price">€3.500</div>
+                    <div class="duration">7 Tage | Festpreis</div>
+                    <ul>
+                        <li>Vollständige Dokumenten-Inventur</li>
+                        <li>Abgleich mit Vertragsanforderungen</li>
+                        <li>Handover-Struktur nach Standard</li>
+                        <li>Checklisten & Übergabeprotokoll</li>
+                        <li>Übergabe-Call (60 Min)</li>
                     </ul>
+                    <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
+                        Ideal für: Anlagenbauer vor Projektübergabe
+                    </p>
                 </div>
                 
                 <div class="service-card">
-                    <div class="icon">📐</div>
-                    <h3>Engineering-Tools</h3>
-                    <p>Python-basierte Lösungen für CAD-Daten, Lastberechnungen und technische Auswertungen.</p>
-                    <ul class="features">
-                        <li>✓ PCF-Dateiverarbeitung</li>
-                        <li>✓ Lastberechnungen</li>
-                        <li>✓ CAD-Datenexport</li>
-                        <li>✓ Technische Skripte</li>
+                    <h3>Monthly Support</h3>
+                    <div class="price">€800</div>
+                    <div class="duration">Pro Monat | Kündbar</div>
+                    <ul>
+                        <li>20h Dokumentations-Pflege/Monat</li>
+                        <li>Neue Dokumente einordnen</li>
+                        <li>Templates aktualisieren</li>
+                        <li>Monatlicher Health-Check</li>
+                        <li>Prioritäts-Support</li>
                     </ul>
+                    <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
+                        Auch verfügbar: Basic €500 | Enterprise €1.200
+                    </p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI -->
+    <section class="roi">
+        <div class="container">
+            <div class="roi-content">
+                <h2 class="section-title">Return on Investment</h2>
+                <table class="roi-table">
+                    <tr>
+                        <th></th>
+                        <th>Vorher</th>
+                        <th>Nachher</th>
+                    </tr>
+                    <tr>
+                        <td>Suchzeit pro Tag</td>
+                        <td class="before">2-3 Stunden</td>
+                        <td class="after">15 Minuten</td>
+                    </tr>
+                    <tr>
+                        <td>Kosten pro Tag (1 MA)</td>
+                        <td class="before">€200-300</td>
+                        <td class="after">€25</td>
+                    </tr>
+                    <tr>
+                        <td>Kosten pro Tag (10 MA)</td>
+                        <td class="before">€2.000-3.000</td>
+                        <td class="after">€250</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amortisation</strong></td>
+                        <td colspan="2" style="text-align: center; font-size: 1.3rem; color: #48bb78; font-weight: bold;">8-12 Tage bei 2 Mitarbeitern</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </section>
 
     <!-- Products -->
-    <section class="products" id="produkte">
+    <section class="products">
         <div class="container">
             <h2 class="section-title">Digitale Produkte</h2>
-            <p class="section-subtitle">Lernen Sie Automation – skalierbar und kostengünstig</p>
+            <p class="section-subtitle">Sofort verfügbar. Sofort nutzbar.</p>
             
             <div class="products-grid">
                 <div class="product-card">
-                    <h3>🎁 Lead Magnet</h3>
-                    <div class="price">Kostenlos</div>
-                    <ul>
-                        <li>✓ 10 Excel-Templates für Ingenieure</li>
-                        <li>✓ Automatisierungs-Checkliste</li>
-                        <li>✓ ROI-Rechner</li>
-                        <li>✓ Direkter Download</li>
-                    </ul>
-                    <a href="#" class="btn">Jetzt downloaden</a>
+                    <h3>Projekt-Dokumentation Tracker</h3>
+                    <div class="price">€47</div>
+                    <div class="format">Excel-Vorlage + Guide</div>
                 </div>
                 
                 <div class="product-card">
-                    <h3>📚 Excel Masterclass</h3>
-                    <div class="price">€97 <span>Einmalig</span></div>
-                    <ul>
-                        <li>✓ 5-stündiger Video-Kurs</li>
-                        <li>✓ VBA-Grundlagen für Ingenieure</li>
-                        <li>✓ Praxis-Beispiele aus dem Anlagenbau</li>
-                        <li>✓ Lebenslanger Zugang</li>
-                        <li>✓ Zertifikat</li>
-                    </ul>
-                    <a href="#" class="btn">Mehr erfahren</a>
+                    <h3>Handover-Checkliste</h3>
+                    <div class="price">€47</div>
+                    <div class="format">Excel-Vorlage + Guide</div>
                 </div>
                 
                 <div class="product-card">
-                    <h3>🚀 Automation Accelerator</h3>
-                    <div class="price">€997 <span>Einmalig</span></div>
-                    <ul>
-                        <li>✓ 8-Wochen-Programm</li>
-                        <li>✓ 1:1 Coaching mit mir</li>
-                        <li>✓ Individuelle Automatisierungslösung</li>
-                        <li>✓ OpenClaw-Implementierung</li>
-                        <li>✓ 3 Monate Support</li>
-                    </ul>
-                    <a href="#" class="btn">Platz sichern</a>
+                    <h3>Projekt-Stunden-Tracker</h3>
+                    <div class="price">€47</div>
+                    <div class="format">Excel-Vorlage + Guide</div>
+                </div>
+                
+                <div class="product-card product-highlight">
+                    <h3>⭐ Komplett-Bundle</h3>
+                    <div class="price">€97</div>
+                    <div class="format">Alle 3 Vorlagen + Guides</div>
+                    <div style="margin-top: 10px; font-size: 0.9rem;">Bestseller</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About -->
-    <section id="ueber-mich">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image">
-                    [Foto Alen Mlivo]
-                </div>
-                <div class="about-text">
-                    <h2>Ing. Alen Mlivo</h2>
-                    <p><strong>Mechanical & Piping Engineer</strong> mit langjähriger Erfahrung im internationalen Anlagenbau. Ich habe bei Primetals Technologies (Mitsubishi Heavy Industries Group) gearbeitet und weiß genau, welche Routinearbeiten Ingenieure tagtäglich behindern.</p>
-                    <p>Statt teurer IT-Dienstleister zu engagieren, die Ihre Prozesse nicht verstehen, biete ich <strong>pragmatische Automatisierung aus der Praxis</strong> – entwickelt von einem Ingenieur für Ingenieure.</p>
-                    
-                    <div class="credentials">
-                        <div class="credential">
-                            <div class="number">10+</div>
-                            <div class="label">Jahre Engineering</div>
-                        </div>
-                        <div class="credential">
-                            <div class="number">50+</div>
-                            <div class="label">Automatisierungen</div>
-                        </div>
-                        <div class="credential">
-                            <div class="number">DACH</div>
-                            <div class="label">Fokus Region</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta" id="kontakt">
+    <!-- Contact -->
+    <section class="contact">
         <div class="container">
             <h2>Bereit für mehr Effizienz?</h2>
-            <p>Vereinbaren Sie ein kostenloses Erstgespräch. Ich analysiere Ihre Prozesse und zeige Ihnen konkrete Automatisierungspotenziale.</p>
-            <a href="mailto:alen.mlivo@mlivo-workflow.com" class="btn">Termin vereinbaren</a>
+            <p>Unverbindliches Erstgespräch. 30 Minuten. Kostenlos.</p>
+            <div class="email">alen.mlivo@mlivo-workflow.com</div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Mlivo Workflow | Ing. Alen Mlivo | Österreich</p>
+            <p>&copy; 2026 Mlivo-Workflow | Ing. Alen Mlivo | Österreich</p>
+            <p class="disclaimer">
+                Wir strukturieren Dokumentation. Die technische Verantwortung verbleibt beim Kunden. 
+                Keine technische Prüfung, keine Zeichnungsfreigabe, keine Compliance-Verifikation.
+            </p>
         </div>
     </footer>
 </body>
