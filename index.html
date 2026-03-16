@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mlivo-Workflow | Dokumentation & Workflow-Strukturierung für technische Teams</title>
-    <meta name="description" content="Wir bringen Ordnung in unstrukturierte Engineering-Prozesse. Dokumentation Cleanup, Handover Packages, Monthly Support. Festpreise, keine technische Haftung.">
+    <meta name="description" content="Wir bringen Ordnung in unstrukturierte Engineering-Prozesse. Festpreis-Services ab €2.500. Digitale Produkte ab €47.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
@@ -15,6 +15,10 @@
         header h1 { font-size: 3rem; margin-bottom: 20px; }
         header .subtitle { font-size: 1.3rem; opacity: 0.9; margin-bottom: 30px; }
         header .tagline { font-size: 1.1rem; background: rgba(255,255,255,0.1); display: inline-block; padding: 15px 30px; border-radius: 50px; }
+        header .cta-buttons { margin-top: 40px; }
+        header .cta-btn { display: inline-block; padding: 15px 40px; margin: 10px; border-radius: 50px; text-decoration: none; font-weight: bold; }
+        header .cta-primary { background: #48bb78; color: white; }
+        header .cta-secondary { background: rgba(255,255,255,0.2); color: white; }
         
         /* Sections */
         section { padding: 80px 0; }
@@ -46,30 +50,49 @@
         .solution-do li:before { content: "✅ "; }
         .solution-dont li:before { content: "❌ "; }
         
-        /* Services */
-        .services { background: #f8f9fa; }
+        /* Services - Premium */
+        .services-premium { background: #1e3a5f; color: white; }
+        .services-premium .section-title { color: white; }
+        .services-premium .section-subtitle { color: rgba(255,255,255,0.8); }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .service-card { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; }
+        .service-card { background: white; color: #333; padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); text-align: center; }
         .service-card h3 { font-size: 1.5rem; color: #1e3a5f; margin-bottom: 15px; }
-        .service-card .price { font-size: 2.5rem; font-weight: bold; color: #48bb78; margin-bottom: 10px; }
-        .service-card .duration { color: #666; margin-bottom: 20px; }
+        .service-card .price { font-size: 2.5rem; font-weight: bold; color: #1e3a5f; margin-bottom: 10px; }
+        .service-card .duration { color: #666; margin-bottom: 20px; font-weight: bold; }
         .service-card ul { list-style: none; text-align: left; margin-bottom: 30px; }
         .service-card li { padding: 8px 0; border-bottom: 1px solid #eee; }
         .service-card li:before { content: "✓ "; color: #48bb78; font-weight: bold; }
+        .service-badge { display: inline-block; background: #48bb78; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 15px; }
         
-        /* Products */
-        .products { background: #1e3a5f; color: white; }
-        .products .section-title { color: white; }
-        .products .section-subtitle { color: rgba(255,255,255,0.8); }
-        .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .product-card { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 10px; text-align: center; }
-        .product-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
-        .product-card .price { font-size: 2rem; font-weight: bold; margin-bottom: 10px; }
-        .product-card .format { font-size: 0.9rem; opacity: 0.8; }
-        .product-highlight { background: #48bb78; transform: scale(1.05); }
+        /* Products - Digital */
+        .products-digital { background: #f8f9fa; }
+        .products-intro { text-align: center; max-width: 800px; margin: 0 auto 60px; }
+        .products-intro h3 { font-size: 1.5rem; color: #1e3a5f; margin-bottom: 15px; }
+        .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .product-card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 3px 15px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-card h3 { font-size: 1.2rem; color: #1e3a5f; margin-bottom: 10px; }
+        .product-card .price { font-size: 2.5rem; font-weight: bold; color: #48bb78; margin-bottom: 10px; }
+        .product-card .price-note { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
+        .product-card .format { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
+        .product-card .features { list-style: none; text-align: left; font-size: 0.9rem; margin-bottom: 20px; }
+        .product-card .features li { padding: 5px 0; }
+        .product-card .features li:before { content: "✓ "; color: #48bb78; }
+        .product-highlight { border: 3px solid #48bb78; position: relative; }
+        .product-badge { position: absolute; top: -10px; right: 20px; background: #48bb78; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; }
+        .product-btn { display: inline-block; background: #1e3a5f; color: white; padding: 10px 25px; border-radius: 25px; text-decoration: none; font-size: 0.9rem; }
+        
+        /* Comparison */
+        .comparison { background: white; }
+        .comparison-table { width: 100%; max-width: 900px; margin: 40px auto; border-collapse: collapse; }
+        .comparison-table th, .comparison-table td { padding: 20px; text-align: left; border-bottom: 1px solid #ddd; }
+        .comparison-table th { background: #1e3a5f; color: white; }
+        .comparison-table .category { background: #f8f9fa; font-weight: bold; color: #1e3a5f; }
+        .comparison-table .price-service { color: #1e3a5f; font-weight: bold; font-size: 1.2rem; }
+        .comparison-table .price-product { color: #48bb78; font-weight: bold; font-size: 1.2rem; }
         
         /* ROI */
-        .roi { background: white; }
+        .roi { background: #f0fff4; }
         .roi-content { max-width: 800px; margin: 0 auto; text-align: center; }
         .roi-table { width: 100%; margin: 40px 0; border-collapse: collapse; }
         .roi-table th, .roi-table td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
@@ -93,6 +116,8 @@
             .services-grid, .products-grid { grid-template-columns: 1fr; }
             .solution-grid { grid-template-columns: 1fr; }
             header h1 { font-size: 2rem; }
+            .comparison-table { font-size: 0.9rem; }
+            .comparison-table th, .comparison-table td { padding: 10px; }
         }
     </style>
 </head>
@@ -103,6 +128,10 @@
             <h1>Mlivo-Workflow</h1>
             <p class="subtitle">Dokumentation & Workflow-Strukturierung für technische Teams</p>
             <p class="tagline">Wir strukturieren. Sie behalten die technische Verantwortung.</p>
+            <div class="cta-buttons">
+                <a href="#services" class="cta-btn cta-primary">Services ab €2.500</a>
+                <a href="#products" class="cta-btn cta-secondary">Digitale Produkte ab €47</a>
+            </div>
         </div>
     </header>
 
@@ -160,14 +189,65 @@
         </div>
     </section>
 
-    <!-- Services -->
-    <section class="services">
+    <!-- Comparison Table -->
+    <section class="comparison">
         <div class="container">
-            <h2 class="section-title">Unsere Services</h2>
-            <p class="section-subtitle">Festpreise. Klare Ergebnisse. Keine technische Haftung.</p>
+            <h2 class="section-title">Services vs. Digitale Produkte</h2>
+            <p class="section-subtitle">Wählen Sie, was zu Ihnen passt</p>
+            
+            <table class="comparison-table">
+                <tr>
+                    <th>Merkmal</th>
+                    <th>🛠️ Services</th>
+                    <th>📦 Digitale Produkte</th>
+                </tr>
+                <tr class="category">
+                    <td colspan="3">Preis</td>
+                </tr>
+                <tr>
+                    <td>Preisspanne</td>
+                    <td class="price-service">€2.500 - €3.500</td>
+                    <td class="price-product">€47 - €97</td>
+                </tr>
+                <tr>
+                    <td>Zahlung</td>
+                    <td>50% vorher / 50% nachher</td>
+                    <td>Einmalig, sofort Download</td>
+                </tr>
+                <tr class="category">
+                    <td colspan="3">Lieferung</td>
+                </tr>
+                <tr>
+                    <td>Zeitaufwand</td>
+                    <td>5-7 Tage Arbeit</td>
+                    <td>Sofort verfügbar</td>
+                </tr>
+                <tr>
+                    <td>Personalisiert</td>
+                    <td>✅ Ja, auf Ihr Projekt</td>
+                    <td>⚡ Templates zum Anpassen</td>
+                </tr>
+                <tr class="category">
+                    <td colspan="3">Ideal für</td>
+                </tr>
+                <tr>
+                    <td>Besteht geeignet für</td>
+                    <td>Komplexe Projekte, Übergaben</td>
+                    <td>Schneller Start, Selbsthilfe</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Services - Premium -->
+    <section class="services-premium" id="services">
+        <div class="container">
+            <h2 class="section-title">🛠️ Premium Services</h2>
+            <p class="section-subtitle">Festpreise. Klare Ergebnisse. Persönliche Betreuung.</p>
             
             <div class="services-grid">
                 <div class="service-card">
+                    <div class="service-badge">Einstieg</div>
                     <h3>Documentation Cleanup</h3>
                     <div class="price">€2.500</div>
                     <div class="duration">5 Tage | Festpreis</div>
@@ -179,11 +259,12 @@
                         <li>Übergabe-Call (30 Min)</li>
                     </ul>
                     <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
-                        Ideal für: Ingenieurbüros mit chaotischer Doku
+                        <strong>Ideal für:</strong> Ingenieurbüros mit chaotischer Doku
                     </p>
                 </div>
                 
                 <div class="service-card">
+                    <div class="service-badge">Bestseller</div>
                     <h3>Handover Package</h3>
                     <div class="price">€3.500</div>
                     <div class="duration">7 Tage | Festpreis</div>
@@ -195,11 +276,12 @@
                         <li>Übergabe-Call (60 Min)</li>
                     </ul>
                     <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
-                        Ideal für: Anlagenbauer vor Projektübergabe
+                        <strong>Ideal für:</strong> Anlagenbauer vor Projektübergabe
                     </p>
                 </div>
                 
                 <div class="service-card">
+                    <div class="service-badge">Kontinuität</div>
                     <h3>Monthly Support</h3>
                     <div class="price">€800</div>
                     <div class="duration">Pro Monat | Kündbar</div>
@@ -211,8 +293,72 @@
                         <li>Prioritäts-Support</li>
                     </ul>
                     <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
-                        Auch verfügbar: Basic €500 | Enterprise €1.200
+                        <strong>Auch verfügbar:</strong> Basic €500 | Enterprise €1.200
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products - Digital -->
+    <section class="products-digital" id="products">
+        <div class="container">
+            <div class="products-intro">
+                <h2 class="section-title">📦 Digitale Produkte</h2>
+                <h3>Sofort verfügbar. Sofort nutzbar.</h3>
+                <p>Excel-Vorlagen und Guides für den sofortigen Einstieg. Keine Wartezeit, keine Terminvereinbarung. Kaufen, downloaden, loslegen.</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3>📋 Projekt-Dokumentation Tracker</h3>
+                    <div class="price">€47</div>
+                    <div class="price-note">Einmalig • Sofort-Download</div>
+                    <div class="format">Excel-Vorlage + PDF-Guide</div>
+                    <ul class="features">
+                        <li>Übersicht aller Projektdokumente</li>
+                        <li>Status-Tracking (Entwurf/Final)</li>
+                        <li>Verantwortlichkeiten zuweisen</li>
+                        <li>Versionierung einfach gemacht</li>
+                    </ul>
+                </div>
+                
+                <div class="product-card">
+                    <h3>✅ Handover-Checkliste</h3>
+                    <div class="price">€47</div>
+                    <div class="price-note">Einmalig • Sofort-Download</div>
+                    <div class="format">Excel-Vorlage + PDF-Guide</div>
+                    <ul class="features">
+                        <li>Vollständige Übergabe-Checkliste</li>
+                        <li>Abgleich mit Vertragsanforderungen</li>
+                        <li>Sign-off Bereich für Kunden</li>
+                        <li>Wiederverwendbar für alle Projekte</li>
+                    </ul>
+                </div>
+                
+                <div class="product-card product-highlight">
+                    <div class="product-badge">Bestseller</div>
+                    <h3>⭐ Komplett-Bundle</h3>
+                    <div class="price">€97</div>
+                    <div class="price-note">Einmalig • Sofort-Download</div>
+                    <div class="format">Alle 3 Vorlagen + Guides</div>
+                    <ul class="features">
+                        <li>Projekt-Dokumentation Tracker</li>
+                        <li>Handover-Checkliste</li>
+                        <li>Projekt-Stunden-Tracker</li>
+                        <li>Bonus: 5 zusätzliche Templates</li>
+                        <li><strong>Spare €44 (31% Rabatt)</strong></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="color: #666; margin-bottom: 20px;">Alle Produkte beinhalten:</p>
+                <div style="display: inline-flex; gap: 30px; flex-wrap: wrap; justify-content: center;">
+                    <span>✅ Sofortiger Download</span>
+                    <span>✅ Lebenslanger Zugriff</span>
+                    <span>✅ Kostenlose Updates</span>
+                    <span>✅ 30-Tage Geld-zurück-Garantie</span>
                 </div>
             </div>
         </div>
@@ -253,47 +399,15 @@
         </div>
     </section>
 
-    <!-- Products -->
-    <section class="products">
-        <div class="container">
-            <h2 class="section-title">Digitale Produkte</h2>
-            <p class="section-subtitle">Sofort verfügbar. Sofort nutzbar.</p>
-            
-            <div class="products-grid">
-                <div class="product-card">
-                    <h3>Projekt-Dokumentation Tracker</h3>
-                    <div class="price">€47</div>
-                    <div class="format">Excel-Vorlage + Guide</div>
-                </div>
-                
-                <div class="product-card">
-                    <h3>Handover-Checkliste</h3>
-                    <div class="price">€47</div>
-                    <div class="format">Excel-Vorlage + Guide</div>
-                </div>
-                
-                <div class="product-card">
-                    <h3>Projekt-Stunden-Tracker</h3>
-                    <div class="price">€47</div>
-                    <div class="format">Excel-Vorlage + Guide</div>
-                </div>
-                
-                <div class="product-card product-highlight">
-                    <h3>⭐ Komplett-Bundle</h3>
-                    <div class="price">€97</div>
-                    <div class="format">Alle 3 Vorlagen + Guides</div>
-                    <div style="margin-top: 10px; font-size: 0.9rem;">Bestseller</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact -->
     <section class="contact">
         <div class="container">
             <h2>Bereit für mehr Effizienz?</h2>
-            <p>Unverbindliches Erstgespräch. 30 Minuten. Kostenlos.</p>
+            <p>Fragen zu Services? Unverbindliches Erstgespräch. 30 Minuten. Kostenlos.</p>
             <div class="email">mlivo.office@gmail.com</div>
+            <p style="margin-top: 30px; font-size: 1rem;">
+                Bei Fragen zu digitalen Produkten: Einfach E-Mail mit "Produkt-Frage" im Betreff.
+            </p>
         </div>
     </section>
 
