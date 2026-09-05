@@ -1,0 +1,14 @@
+# /home/alen ist ein Git-Repo (Remote: mlivo-workflow-website).
+# Deny-by-default: alles im Home ist ignoriert, nur die Website-Dateien
+# werden explizit freigegeben. Schuetzt .ssh, .gnupg, .config, Credentials
+# vor einem versehentlichen "git add .".
+
+/*
+
+!/.gitignore
+!/.github/
+!/README.md
+!/IMAGE-GUIDELINES.md
+!/index.html
+!/mlivo-workflow-neu.html
+!/mlivo-workflow-neu.pdf
